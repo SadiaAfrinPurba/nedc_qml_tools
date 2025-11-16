@@ -272,5 +272,6 @@ nedc_qml_base_providers_tools.py. For example:
 This tool is developed in part with contributions from **Dr. Joseph Picone’s laboratory**, the Neural Engineering Data Consortium (NEDC):  
 https://www.linkedin.com/company/neural-engineering-data-consortium/
 
-Additionally, this project makes use of visualization resources from the **IMLD Toolkit**:  
-https://isip.piconepress.com/projects/imld/resources/app/
+Additionally, the **IMLD Toolkit** uses this project to visualize quantum
+machine learning algorithms, including QNN, QSVM, and QRBM models. 
+IMLD: https://isip.piconepress.com/projects/imld/resources/app/
