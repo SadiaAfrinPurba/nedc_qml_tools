@@ -17,6 +17,7 @@
 
 ## Quick Start Example
 
+```
 from nedc_qml_tools import QML
 import numpy as np
 
@@ -44,6 +45,7 @@ predictions = qml.predict(X_train)
 >> [0, 1, 1, 0]
 error_rate, prections = qml.score(X_train, X_train)
 >> 0.00, [0, 1, 1, 0]
+```
 
 -------------------------------------------------------------------------------
 
@@ -56,10 +58,12 @@ error_rate, prections = qml.score(X_train, X_train)
    ENCODER_NAME_NEW = 'new'
 
 2a) Add abstract method in nedc_qml_base_providers_tools.py
-
+   
+   ```
    @abstractmethod
    def get_new_encoder(self):
        raise NotImplementedError
+   ```
 
 2b) Update ENCODER_COMPUTERS dictionary:
     
@@ -79,8 +83,7 @@ error_rate, prections = qml.score(X_train, X_train)
 
 3) Implement concrete method in nedc_qml_providers_tools.py
 
-    Assuming we are adding a Qiskit encoder/featuremap, so adding the
-    concrete implementation in QiskitProvider class.
+Assuming we are adding a Qiskit encoder/featuremap, so adding the concrete implementation in QiskitProvider class.
 
     def get_new_encoder(self):
         """
@@ -105,12 +108,12 @@ error_rate, prections = qml.score(X_train, X_train)
 
 
 ### [Optional]
-
+```
 cd tests
 
 1) Add a new test for the newly added module in test_nedc_qml_tools.py
 2) run_tests.sh
-
+```
 -------------------------------------------------------------------------------
 
 ### Adding a New Qunatum model
@@ -202,6 +205,7 @@ cd tests
 
 2) Add the new quantum provider class and necessary methods in   nedc_qml_providers_tools.py
     
+    ```
     class NewProvider(QuantumProvider):
     """
     Description
@@ -248,16 +252,25 @@ cd tests
         # exit gracefully: 
         #
         return b
-    
+    ```
 3) Update the HARDWARE_SPECS dictionary with proper simulator function name in
 nedc_qml_base_providers_tools.py. For example: 
     
+```
     HARDWARE_SPECS = {,
                   NewProvider: {const.HARDWARE_NAME_CPU: "get_basic_simulator"}
     }
+```
 
-1) Register the new quantum provider at the bottom of nedc_qml_tools.py file
+4) Register the new quantum provider at the bottom of nedc_qml_tools.py file
     Registry.register_provider(const.PROVIDER_NAME_NEW, nqpt.NewProvider)
 
-2) Run `make install` 
+5) Run `make install` 
 
+## Acknowledgements
+
+This tool is developed in part with contributions from **Dr. Joseph Picone’s laboratory**, the Neural Engineering Data Consortium (NEDC):  
+https://www.linkedin.com/company/neural-engineering-data-consortium/
+
+Additionally, this project makes use of visualization resources from the **IMLD Toolkit**:  
+https://isip.piconepress.com/projects/imld/resources/app/
