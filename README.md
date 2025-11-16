@@ -51,11 +51,6 @@ error_rate, prections = qml.score(X_train, X_train)
 
 ### Adding a New Encoder
 
-Lock the files:
-
-- isip_co nedc_qml_tools_constants.py
-- isip_co nedc_qml_base_providers_tools.py
-- isip_co nedc_qml_providers_tools.py
 
 1) Add constant in nedc_qml_tools_constants.py
    ENCODER_NAME_NEW = 'new'
@@ -108,11 +103,6 @@ Lock the files:
 
 4) Run `make install` 
 
-Checked in the changes by running:
-
-- isip_ci nedc_qml_tools_constants.py -> add a log message, and press .
-- isip_ci nedc_qml_base_providers_tools.py -> add a log message, and press .
-- isip_ci nedc_qml_providers_tools.py -> add a log message, and press .
 
 ### [Optional]
 
@@ -124,10 +114,6 @@ cd tests
 -------------------------------------------------------------------------------
 
 ### Adding a New Qunatum model
-Lock the files:
-
-- isip_co nedc_qml_tools_constants.py
-- isip_co nedc_qml_tools.py
 
 1) Add constant in nedc_qml_tools_constants.py
    MODEL_NAME_NEW = 'new'
@@ -207,20 +193,9 @@ Lock the files:
 
 3) Run `make install` 
 
-Checked in the changes by running:
-
-- isip_ci nedc_qml_tools_constants.py -> add a log message, and press .
-- isip_ci nedc_qml_tools.py -> add a log message, and press .
-
 -------------------------------------------------------------------------------
 
 ### Adding a New Qunatum Provider
-Lock the files:
-
-- isip_co nedc_qml_tools_constants.py
-- isip_co nedc_qml_providers_tools.py
-- isip_co nedc_qml_base_providers_tools.py
-- isip_co nedc_qml_tools.py
 
 1) Add constant in nedc_qml_tools_constants.py
    PROVIDER_NAME_NEW = 'new'
@@ -281,16 +256,8 @@ nedc_qml_base_providers_tools.py. For example:
                   NewProvider: {const.HARDWARE_NAME_CPU: "get_basic_simulator"}
     }
 
-4) Register the new quantum provider at the bottom of nedc_qml_tools.py file
+1) Register the new quantum provider at the bottom of nedc_qml_tools.py file
     Registry.register_provider(const.PROVIDER_NAME_NEW, nqpt.NewProvider)
 
-5) Run `make install` 
-
-Checked in the changes by running:
-
-- isip_ci nedc_qml_tools_constants.py -> add a log message, and press .
-- isip_ci nedc_qml_providers_tools.py -> add a log message, and press .
-- isip_ci nedc_qml_base_providers_tools.py -> add a log message, and press .
-- isip_ci nedc_qml_tools.py -> add a log message, and press .
-
+2) Run `make install` 
 
